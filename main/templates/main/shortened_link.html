@@ -1,0 +1,54 @@
+{% extends "main/base.html" %}
+{% block title %}
+URLShortener
+{% endblock %}
+{% block navigationbar %}
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <div class="container-lg mt-5 pe-5">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-5 col-lg-offset-4">
+                <div class="text-center">
+                    <h1>
+                        <div style="font-family: 'Proxima Nova', sans-serif;"><b>URL LIST - {{user | upper}}</b></div>
+                    </h1>
+                    <br> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-lg mt-5 pe-5">
+        <div class="row align-items-center justify-content-center">
+            <table style="font-family: 'Proxima Nova';"class="table table-bordered" style="width: 800px">
+                <thead class="table-primary text-center">
+                    <th scope="col">
+                        <!-- ID is the number link the user created. -->
+                        <h6><b>ID</b></h6>
+                    </th>
+                    <th scope="col">
+                        <h6><b>LINKS</b></h6>
+                    </th>
+                    <th scope="col">
+                        <h6><b>DELETE</b></h6>
+                    </th>
+                </thead>
+
+                {% for urls in user.URL_user_main.all %}
+                <tr class="text-center">
+                    <td scope="row">{{urls.id}}</td>
+                    <td><a href="{{urls.short_url}}">https://127.0.0.1:8000/{{urls.short_url | title}}</a></td>
+                    <td>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <a type="button" href="{{urls.id}}" class="btn btn-outline-danger rounded-0">Delete</a>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %} 
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
