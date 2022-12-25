@@ -21,3 +21,5 @@ If you click on the profile on the top right with your username you can access a
 - Create a website with interacting frontend and backend. 
 - Building a proper backend which generates custom URLs 
 
+# Currently Working On... 
+- Making custom URL accounts for anonymous accounts 
