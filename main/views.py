@@ -52,6 +52,7 @@ def shortened_link(response):
     context = {"link": link}
     return render(response, "main/shortened_link.html", context)
 
+# Request to delete certain URL from database. 
 def delreq(response, id):
     linkObject = Shortened_URL.objects.get(id=id)
     linkObject.delete()
@@ -89,6 +90,7 @@ def login_page(response):
             redirect("/shortener")
         else:
             print("User does not exist")
+
     context = {}
     return render(response, "main/login_page.html", context)
 
