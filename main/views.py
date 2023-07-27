@@ -2,6 +2,7 @@ import pyshorteners
 import random 
 import string
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.template import loader
@@ -10,6 +11,12 @@ from .models import Shortened_URL
 
 def home(request):
     return render(request, "main/base.html", {"name": "Joseph"})
+
+@login_required
+def custom_logout(request):
+    logout(request)
+    return render(request, "main/logout.html")
+
 
 def url_shortener(response): 
     # Context{} has two ShortURLs. One for anonymous users and another for authenticated users. 
@@ -46,7 +53,7 @@ def url_shortener(response):
     context = {}
     return render(response, "main/shortener.html", context)
 
-
+# 
 def shortened_link(response):
     link = Shortened_URL.objects.all(); 
     context = {"link": link}
@@ -77,6 +84,7 @@ def homepage(request):
 def terms_and_services(request): 
     return render(request, "main/terms_and_services.html")
 
+# 
 def login_page(response): 
     if response.method == "POST":
         login_username = response.POST.get("login_username")
@@ -94,6 +102,7 @@ def login_page(response):
     context = {}
     return render(response, "main/login_page.html", context)
 
+# If information in sign up form is valid then create account in database and then redirect to login page. 
 def signup(response):
     if response.method == "POST":
         form = RegisterForm(response.POST)  
