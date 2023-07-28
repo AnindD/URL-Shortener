@@ -15,7 +15,7 @@ URLShortener
     border: 4px solid black;
     }
     .jumbotron {
-    background-image: url("https://medicainstitute.com/wp-content/uploads/2017/10/blue-gradient-background-6517.jpeg");
+    background-image: url("https://images.unsplash.com/photo-1614850523011-8f49ffc73908?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");
     background-repeat: no-repeat, repeat; 
     background-position: center; 
     background-size: cover; 
@@ -84,6 +84,8 @@ URLShortener
                                     {% else %} 
                                     <h4 style="font-family: 'Acre Medium', sans-serif;"><br>YOUR URL: <a href="{{ShortURL}}">{{ShortURL}}</a></h4>
                                     {% endif %}
+                                    {% else %} 
+                                    <h4 style="font-family: 'Acre Medium', sans-serif;"><br>Your URL is not valid, please try again.</h4>
                                     {% endif %}
                                 </div>
                                 <br>

@@ -50,6 +50,9 @@ def url_shortener(response):
             return HttpResponse(template.render(context, response))
         except Exception as e: 
             print(e)
+            linked = False
+            context = {"ShortURL": "Your URL is not valid", "linked": linked}
+            return HttpResponse(template.render(context, response))
     context = {}
     return render(response, "main/shortener.html", context)
 
