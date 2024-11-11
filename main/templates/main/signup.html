@@ -1,0 +1,52 @@
+{% extends "main/base.html" %}
+{% block title %}
+Signup
+{% endblock %}
+{% block navigationbar %}
+{% endblock %}
+{% block content %}
+<style type="text/css">
+    .jumbotron {
+    background-image: url("https://images.unsplash.com/photo-1547093349-65cdba98369a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+    background-repeat: no-repeat, repeat; 
+    background-position: center; 
+    background-size: cover; 
+    padding-top: 50px; 
+    height: 975px; 
+    border-style: solid; 
+    border: 20px;
+    border-color: black;
+    }
+    .row {
+    height: 650px;
+    }
+    #mainText{
+    font-family: 'Proxima Nova', sans-serif;
+    }
+</style>
+
+<div class="jumbotron">
+    <div class="container-lg mt-5 pe-5">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-5 col-lg-offset-4">
+                <div class="card rounded-0 border-secondary mb-3" style="width: 590px">
+                    <div class="card-body" style="width: 100">
+                        <div class="text-center">
+                            <h1 id="mainText">
+                                <b>Register Account</b>
+                            </h1>
+                        </div>
+                        <form style="color: grey" id="mainText" action="/signup/" method="POST" class="signupform pb-3"> 
+                            <!-- Django form used because it is easier to do form.save() in Views.py than do it manually like it was done in login -->
+                            {% csrf_token %} 
+                            {{form.as_p}} 
+                            <button type="submit", name="save", value="save" class="btn btn-primary rounded-0 mt-3">Create Account</button> 
+                        </form>
+                    </div>
+                </div>
+                <br>   
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

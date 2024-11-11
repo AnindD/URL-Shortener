@@ -1,0 +1,42 @@
+{% extends "main/base.html" %}
+{% block title %}
+Redirected URL
+{% endblock %}
+{% block navigationbar %}
+{% endblock %}
+{% block content %}
+<style type="text/css">
+   .row {
+   height: 650px;
+   }
+   .jumbotron {
+   background-image: url("https://www.xmple.com/wallpaper/gradient-white-blue-linear-3200x1800-c2-ffffff-1e90ff-a-90-f-14.svg");
+   background-repeat: no-repeat, repeat; 
+   background-position: center; 
+   background-size: cover; 
+   padding-top: 50px; 
+   height: 940px; 
+   border-style: solid; 
+   border: 20px;
+   border-color: black;
+   }
+</style>
+<div class="jumbotron">
+   <div class="container-lg mt-5 pe-5">
+      <div class="row align-items-center justify-content-center">
+         <div class="col-lg-5 col-lg-offset-4">
+            <div class="card rounded-0 border-secondary mb-3 border-1" style="width: 590px">
+               <div class="card-body" style="width: 100">
+                  <div style="font-family: 'Acre Medium', sans-serif;" class="text-center">
+                     <h2 style="font-family: 'Proxima Nova', sans-serif;"><b>Your Original Request</b></h2>
+                     <p><a href="{{obj.original_url}}">{{obj.original_url}}</a></p>
+                     <hr style="color: black" class="my-4">
+                     <a href="homepage"  class="btn btn-success rounded-0">Return To Homepage</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

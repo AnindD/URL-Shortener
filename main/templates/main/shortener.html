@@ -1,0 +1,101 @@
+{% extends "main/base.html" %}
+{% block title %}
+URLShortener
+{% endblock %}
+{% block navigationbar %}
+{% endblock %}
+{% block content %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/proxima-nova-2" rel="stylesheet">
+<link href="//db.onlinewebfonts.com/c/96e3eaa4be579c8593e16efe703d43c2?family=Acre+Medium" rel="stylesheet" type="text/css"/>
+<style type="text/css">
+    .card {
+    border: 4px solid black;
+    }
+    .jumbotron {
+    background-image: url("https://images.unsplash.com/photo-1614850523011-8f49ffc73908?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");
+    background-repeat: no-repeat, repeat; 
+    background-position: center; 
+    background-size: cover; 
+    padding-top: 50px; 
+    height: 975px; 
+    border-style: solid; 
+    border: 20px;
+    border-color: black;
+    }
+    h5 {
+    font-weight: bold; 
+    text-align: left; 
+    max-width: 720px;
+    text-align: justify;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: 'Proxima Nova', sans-serif;
+    font-weight: bold;
+    }
+    p {
+    text-align: justify;
+    text-align-last: left; 
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: auto;
+    max-width: 720px;
+    font-family: 'Proxima Nova', sans-serif;
+    font-weight: 350;
+    font-size: 19px;
+    }
+    .row {
+    height: 650px;
+    }
+</style>
+<div class="jumbotron">
+    <div class="container-md">
+        <div class="row justify-content-center align-items-center mt-5 mb-5">
+            <div id ="urlBody" class="col-lg-5 col-lg-offset-4">
+                <div class="card rounded-0 border-dark mb-3" style="width: 590px">
+                    <div class="card-body" style="width: 100">
+                        <div class="text-center">
+                            <div class="text-center">
+                                <h1 style="font-family: 'Proxima Nova', sans-serif;"><b>PASTE URL!</b></h1>
+                                <img src="https://static.thenounproject.com/png/1690-200.png">
+                                <br>
+                            </div>
+                            <form  method="POST" class="pb-3" action="">
+                                {% csrf_token %} 
+                                <input type="text" style="height: 42px; width: 550px; font-family: 'Proxima Nova'" class="form-control rounded-0 text-center"  id="link" name="link" placeholder="Enter URL"> 
+                                <div style="font-family: 'Acre Medium'" class="text-center">
+                                    <button type="submit" style="height: 50px; width: 550px" class="btn btn-primary mt-3 rounded-0">Decode URL</button>
+                                    <!-- If user is anonymous they be given a tinyURL because you cannot save random URLs without using another Django model without a ForeignKey. Will be done later -->
+                                    {% if linked %}
+                                    {% if user.is_authenticated %}
+                                    <h4 style="font-family: 'Acre Medium', sans-serif;"><br>YOUR URL: <a href="{{ShortURL2}}">https://127.0.0.1:8000/{{ShortURL2}}</a></h4>
+                                    {% else %} 
+                                    <h4 style="font-family: 'Acre Medium', sans-serif;"><br>YOUR URL: <a href="{{ShortURL}}">{{ShortURL}}</a></h4>
+                                    {% endif %}
+                                    {% endif %}
+                                </div>
+                                <br>
+                                <div id="URLShortenerBody" class="text-center">
+                                    <small class="form-text text-muted mt-4" style="text-align: center; font-family: 'Acre Medium', sans-serif; font-weight: 300;">Please make sure you agree with our <a href="terms_and_services">terms and agreements</a> prior to using.</small>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

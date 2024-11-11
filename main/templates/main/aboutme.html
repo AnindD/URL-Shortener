@@ -1,0 +1,57 @@
+{% extends "main/base.html" %}
+{% block title %}
+About Me
+{% endblock %}
+{% block navigationbar %}
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.cdnfonts.com/css/proxima-nova-2" rel="stylesheet">
+<style type="text/css">
+   .jumbotron {
+   background-image: url("https://img.freepik.com/free-photo/gray-abstract-wireframe-technology-background_53876-101941.jpg?w=2000");
+   background-repeat: no-repeat, repeat; 
+   background-position: center; 
+   background-size: cover; 
+   padding-top: 50px; 
+   height: 1000px; 
+   border-style: solid; 
+   border: 20px;
+   border-color: black;
+   }
+   .row {
+   height: 650px;
+   }
+   #aboutMeBox{ 
+   font-size: 20px;
+   font-family: 'Proxima Nova', sans-serif;
+   font-weight: 300;
+   }
+</style>
+<div class="jumbotron">
+   <div class="container-md mt-5">
+      <div class="row align-items-center justify-content-center">
+         <!-- Decided to use background image to make it look more visual. Along with line-by-line columns similar to other websites. -->
+         <div class="col">
+            <img src="https://st4.depositphotos.com/36081542/38160/i/600/depositphotos_381601896-stock-photo-silhouette-young-man-watching-sunset.jpg">
+         </div>
+         <div class="col" id="aboutMeBox">
+            <div style="font-size: 32px; font-family: 'Proxima Nova', sans-serif;"><b>About Me</b></div>
+            <br>
+            <p>Hello!</p>
+            <p>My name is Anindit Dewan and I am the programmer of this website. </p>
+            <p>The website was made using HTML/CSS front end with the Bootstrap web development framework. The back end was done using Python/Django. The database was completed using built-in MySQL from the Django workbench.</p>
+            <p> This is my first web development project. Previously I had built websites using Flask, however, I decided to try out Django due to its popularity and greater access to coding libraries.</p>
+            <p>I hope you enjoy URLShortener and find a use for it.</p>
+            <!-- Sub Column to implement social media icons horizontally instead of vertically. -->
+            <div id="socialmediaBox" class="col">
+               <a class="btn btn-outline-dark rounded-0"  style="height: 50px; width: 50px; font-size: 24px;" href="https://github.com/AnindD"><i class="fa fa-github"></i></a>
+               <a class="btn btn-outline-dark rounded-0 ms-3"  style="height: 50px; width: 50px; font-size: 24px;" href="https://Instagram.com"><i class="fa fa-instagram"></i></a>
+               <a class="btn btn-outline-dark rounded-0 ms-3"  style="height: 50px; width: 50px; font-size: 24px;" href="https://youtube.com"><i class="fa fa-youtube-play"></i></a>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}
